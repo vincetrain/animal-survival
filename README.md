@@ -6,7 +6,7 @@ Quick JPRG game written in Java for ICS4U. Contains the bare-bones Animal Surviv
 - Enemy difficulty scaling
 - Random enemy generator
 
-## todo
+TODO:
 - Google Firebase
 - Inventory/Item system
 - Party system
