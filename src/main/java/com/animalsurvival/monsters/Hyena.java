@@ -1,4 +1,4 @@
-package com.animalsurvival.api.monsters;
+package com.animalsurvival.monsters;
 
 import java.util.Random;
 

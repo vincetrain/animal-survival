@@ -1,10 +1,9 @@
 package com.animalsurvival;
 
-import com.animalsurvival.api.animals.*;
-import com.animalsurvival.api.monsters.*;
+import com.animalsurvival.animals.*;
+import com.animalsurvival.monsters.*;
+import com.animalsurvival.utility.*;
 
-import com.animalsurvival.api.services.*;
-import com.animalsurvival.api.utility.*;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -105,7 +104,7 @@ public final class App {
      * @param userInput String containing userInput
      */
     public static void newGame(String userInput) {
-        String name = MainUtil.getName();
+        String name = getName();
         String achoice = "";
         Animal animal;
 
@@ -292,14 +291,14 @@ public final class App {
                 }
 
                 if (dmg > 0) {
-                    CombatService.attack(monster, dmg);
+                    CombatUtil.attack(monster, dmg);
                 }
             }
             // Monster turn to attack
             else {
                 dmg = CombatUtil.randomAttack(monster);
 
-                CombatService.attack(animal, dmg);
+                CombatUtil.attack(animal, dmg);
             }
 
             System.out.println("Press ENTER to continue..");
@@ -351,5 +350,30 @@ public final class App {
         System.out.println("\nYour HP: " + animal.getHealth() + "/" + animal.getMaxHealth());
         System.out.println(monster.toString());
         System.out.println(animal.attackMenuToString());
+    }
+
+    /**
+     * Retrieves animal name from user and returns it
+     * 
+     * @param reader Scanner variable
+     * @return
+     */
+    public static String getName() {
+        String name = null;
+        String choice = null;
+
+        while (true) {
+            System.out.println("\nPlease enter a name: ");
+            reader = new Scanner(System.in);
+            name = reader.nextLine();
+            
+            System.out.println("\nConfirm name as " + name + "? y/n");
+            reader = new Scanner(System.in);
+            choice = reader.nextLine().toLowerCase();
+            if (choice.equals("y")) {
+                break;
+            }
+        } 
+        return name;
     }
 }

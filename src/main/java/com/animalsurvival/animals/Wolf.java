@@ -1,4 +1,4 @@
-package com.animalsurvival.api.animals;
+package com.animalsurvival.animals;
 
 import java.util.Random;
 
